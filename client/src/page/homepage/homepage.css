@@ -1,19 +1,78 @@
-.hero_container{
+.hero_container {
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: var(--dark-color);
 }
 
-.overlay{
+.overlay {
   background-color: var(--dark-transparent-color);
   height: 100%;
   width: 100%;
+  padding: 1rem;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:1rem;
+}
+
+.filter_component {
+  display: block;
+}
+
+.current_hero_movie_details {
+  margin-top: 3rem;
+}
+
+.hero_movie_title {
+  color: var(--white-color);
+}
+
+.hero_movie_test {
+  color: var(--dark-gray);
+  text-align: justify;
+  padding: 1rem 0;
+}
+
+.body h2 {
+  font-size: 30px;
+  text-align: center;
+  color: var(--main-color);
+  margin: 2rem;
+}
+
+@media (min-width: 700px) {
+  .current_hero_movie_details {
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hero_movie_title {
+    font-size: 50px;
+  }
+
+  .hero_movie_test {
+    font-size: 20px;
+    text-align: center;
+    max-width: 50rem;
+  }
+
+  .hero_container {
+    background-size: contain;
+  }
+
+  .overlay {
+    padding: 1rem 4rem;
+  }
+
+  .filter_component {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

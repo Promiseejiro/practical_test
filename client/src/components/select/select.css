@@ -1,0 +1,28 @@
+.select_container {
+  max-width: 10rem;
+  min-width: 10rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  color: var(--white-color);
+}
+
+.select_container fieldset {
+  border-radius: 7px;
+  padding-left: 0.5rem;
+}
+
+.select_container select {
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--white-color);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.select_container option {
+  color: var(--dark-color);
+}

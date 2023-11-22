@@ -1,0 +1,57 @@
+.card_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+  /* background-color: var(--dark-color); */
+}
+
+.card {
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-color);
+  /* color: var(--white-color); */
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.card h4 {
+}
+
+.rating_date_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  color: var(--main-color);
+  font-size: 12px;
+  font-weight: 450;
+}
+
+.rating {
+  color: var(--dark-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.gold {
+  color: gold;
+}

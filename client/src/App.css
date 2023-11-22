@@ -2,8 +2,9 @@
   --main-color: #c11119;
   --white-color: #fff;
   --dark-color: black;
-  --gray-color: rgba(255,255,255,.5);
-  --dark-transparent-color: rgba(0,0,0,.6);
+  --gray-color: rgba(255, 255, 255, 0.5);
+  --dark-transparent-color: rgba(0, 0, 0, 0.6);
+  --dark-gray:rgba(255,255,255,.7);
   --font-family: "Poppins", sans-serif;
 }
 
@@ -13,10 +14,20 @@
   margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6,p,span, button,a{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+a,
+input {
   font-family: var(--font-family);
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
