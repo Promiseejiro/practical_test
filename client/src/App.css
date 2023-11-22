@@ -1,5 +1,12 @@
 :root {
   --main-color: #c11119;
-  --white-color: fff;
+  --white-color: #fff;
   --dark-color: black;
+  --font-family: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }

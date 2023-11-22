@@ -1,0 +1,25 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+.btn--secondary {
+  background-color: var(--white-color);
+  color: var(--main-color);
+}
+
+.btn--large {
+  width: 100%;
+}
