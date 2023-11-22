@@ -4,7 +4,7 @@
   --dark-color: black;
   --gray-color: rgba(255, 255, 255, 0.5);
   --dark-transparent-color: rgba(0, 0, 0, 0.6);
-  --dark-gray:rgba(255,255,255,.7);
+  --dark-gray: rgba(255, 255, 255, 0.7);
   --font-family: "Poppins", sans-serif;
 }
 
@@ -30,4 +30,8 @@ input {
 
 button {
   cursor: pointer;
+}
+
+.App {
+  background-color: var(--dark-color);
 }
