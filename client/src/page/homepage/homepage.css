@@ -1,0 +1,19 @@
+.hero_container{
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay{
+  background-color: var(--dark-transparent-color);
+  height: 100%;
+  width: 100%;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:1rem;
+}

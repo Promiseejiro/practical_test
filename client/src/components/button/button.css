@@ -2,12 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1em;
-  padding: 0.5rem 1rem;
+  gap: .5em;
   outline: none;
   border: none;
-  border-radius: 15px;
-  cursor: pointer;
+  border-radius: 35px;
+  font-weight: 500;
+}
+
+.btn:hover{
+  opacity: .8;
 }
 
 .btn--primary {
@@ -21,5 +24,31 @@
 }
 
 .btn--large {
+  padding:.5rem 3rem;
+  font-size: 18px;
+}
+
+.btn--medium {
+  padding:.5rem 1rem;
+  font-size: 16px;
+}
+
+.btn--small {
   width: 100%;
+  padding:.3rem .5rem;
+  font-size:14px;
+}
+
+.button-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+ /* font-size: 18px;*/
+}
+
+@media(min-width:700px){
+  .btn--small{
+    display: inline-block;
+  }
 }

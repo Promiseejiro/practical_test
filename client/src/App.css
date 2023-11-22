@@ -2,6 +2,8 @@
   --main-color: #c11119;
   --white-color: #fff;
   --dark-color: black;
+  --gray-color: rgba(255,255,255,.5);
+  --dark-transparent-color: rgba(0,0,0,.6);
   --font-family: "Poppins", sans-serif;
 }
 
@@ -9,4 +11,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6,p,span, button,a{
+  font-family: var(--font-family);
+}
+
+button{
+    cursor: pointer;
 }

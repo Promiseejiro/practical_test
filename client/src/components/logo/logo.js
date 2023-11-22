@@ -4,7 +4,9 @@ import { RiMovieLine } from "react-icons/ri";
 import "./logo.css";
 
 const Logo = () => {
-  return <RiMovieLine />;
+  return(
+  <span className="logo">Moviebox</span>
+  )
 };
 
 export default Logo;
