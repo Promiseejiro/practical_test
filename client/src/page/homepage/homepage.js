@@ -5,19 +5,20 @@ import Favourite from "../../components/favorite/favorite";
 import Search from "../../components/search/search";
 import Select from "../../components/select/select";
 import { MdSlowMotionVideo } from "react-icons/md";
-
+// import {base_uri} from "../../../utils/utils";
 import "./homepage.css";
 import Cards from "../../components/movie_card/movie_cards";
 
+const base_uri = "http://localhost:8080";
 const Homepage = () => {
-  const [data, setData] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   const fetchData = () => {
-    fetch(`http://localhost:8080/fetch`)
+    fetch(`${base_uri}/fetch`)
       .then((response) => response.json())
       .then((data) => {
-        setData([data]);
-        // alert(data);
+        // console.log(data.results);
+        setMovies(data.results);
       })
       .catch((error) => {
         console.log(error);
@@ -63,7 +64,7 @@ const Homepage = () => {
       </div>
       <div className="body">
         <h2>All movies</h2>
-        <Cards />
+        {movies && <Cards movies={movies} />}
       </div>
     </div>
   );
