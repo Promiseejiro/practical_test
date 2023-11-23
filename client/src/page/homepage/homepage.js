@@ -25,6 +25,14 @@ const Homepage = () => {
       });
   };
 
+  const optionHandler = (option) => {
+    console.log(option);
+  };
+
+  const onChangeHandler = (value) => {
+    console.log(value);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -44,8 +52,8 @@ const Homepage = () => {
             <Favourite />
           </header>
           <div className="filter_component">
-            <Search />
-            <Select />
+            <Search onChangeHandler={onChangeHandler} />
+            <Select optionHandler={optionHandler} />
           </div>
           <div className="current_hero_movie_details">
             <h1 className="hero_movie_title">The creator</h1>
@@ -54,7 +62,7 @@ const Homepage = () => {
               Massachusetts to research a hotel supposedly haunted by a witch.
             </p>
             <Button
-              label={"Watch"}
+              label={"View"}
               icon={<MdSlowMotionVideo />}
               type={"primary"}
               size={"medium"}
@@ -63,11 +71,13 @@ const Homepage = () => {
         </div>
       </div>
       <div className="body">
-      <div className="body_header">
-        <h2 >All movies</h2>
+        <div className="body_header">
+          <h2>All movies</h2>
         </div>
         {movies && <Cards movies={movies} />}
+        <Button label={"See More"} type="outline" size={"medium"} />
       </div>
+      <footer>Created with ❤ by Promise</footer>
     </div>
   );
 };

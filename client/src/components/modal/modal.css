@@ -1,0 +1,39 @@
+.modal_container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.modal_container > div {
+  background-color: var(--white-color);
+  padding: 3rem;
+  border-radius: 7px;
+  position: relative;
+  width: 20rem;
+}
+
+.modal_container p {
+  font-weight: 450;
+  text-align: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+}

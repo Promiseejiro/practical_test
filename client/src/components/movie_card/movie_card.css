@@ -9,6 +9,7 @@
 
 .card {
   position: relative;
+  padding: 1rem 0;
 }
 
 .card img {
@@ -30,9 +31,9 @@
   border: none;
 }
 
-.favorite:hover{
+/* .favorite:hover{
   color:var(--main-color);
-}
+} */
 
 .card h4 {
   color: var(--white-color);
@@ -60,4 +61,23 @@
 
 .gold {
   color: gold;
+}
+
+@media (min-width: 600px) {
+  .card_container {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .card_container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card_container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }

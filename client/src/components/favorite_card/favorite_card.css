@@ -6,16 +6,16 @@ ul {
 
 .list_item {
   display: flex;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
-.list_item img{
+.list_item img {
   width: 3rem;
   height: auto;
   border-radius: 3px;
 }
 
-.list_item>div{
+.list_item > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,17 +23,16 @@ ul {
   padding-left: 1rem;
 }
 
-.list_item >div >div{
+.list_item > div > div {
   width: 100%;
 }
 
-.list_item h5{
+.list_item h5 {
   font-weight: 16px;
-  border:1px solid red;
 }
 
-.list_item .fav_rating{
+.list_item .fav_rating {
   font-size: 12px;
   font-weight: 500;
-color:var(--main-color);
+  color: var(--main-color);
 }
