@@ -24,15 +24,19 @@
   align-items: center;
   justify-content: center;
   background-color: var(--gray-color);
-  /* color: var(--white-color); */
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   border: none;
 }
 
+.favorite:hover{
+  color:var(--main-color);
+}
+
 .card h4 {
   color: var(--white-color);
+  font-weight: 450;
 }
 
 .rating_date_container {

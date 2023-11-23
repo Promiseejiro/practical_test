@@ -37,11 +37,19 @@
   padding: 1rem 0;
 }
 
-.body h2 {
+.body_header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.body  h2 {
   font-size: 30px;
+  font-weight: 450;
   text-align: center;
-  color: var(--main-color);
-  margin: 2rem;
+  color: var(--white-color);
+border-bottom: 2px solid var(--main-color);
 }
 
 @media (min-width: 700px) {

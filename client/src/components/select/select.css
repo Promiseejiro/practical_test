@@ -2,25 +2,50 @@
   max-width: 10rem;
   min-width: 10rem;
   margin-top: 1rem;
-  overflow: hidden;
   color: var(--white-color);
 }
 
 .select_container fieldset {
   border-radius: 7px;
-  padding-left: 0.5rem;
 }
 
-.select_container select {
+.select_container legend{
+  margin-left:.5rem;
+}
+
+.drop_down_menu {
   width: 100%;
-  padding: 0.5rem 0;
   background-color: transparent;
   border: none;
   outline: none;
   color: var(--white-color);
+  cursor: pointer;
+  position:relative;
+}
+
+.drop_down_value{
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
   font-weight: 500;
   font-size: 16px;
-  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.option_container{
+  background-color: var(--white-color);
+  border-radius: 7px;
+  list-style:none;
+  position:absolute;
+  width: 100%;
+  top:2.6rem;
+  left:0;
+}
+
+.option_container li{
+  padding: .5rem;
+  color:var(--dark-color);
+  border-top:1px solid var(--gray-color);
 }
 
 .select_container option {

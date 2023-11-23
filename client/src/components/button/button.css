@@ -23,6 +23,11 @@
   color: var(--main-color);
 }
 
+.btn--gray {
+  background-color: var(--dark-gray);
+  color: var(--dark-color);
+}
+
 .btn--large {
   padding:.5rem 3rem;
   font-size: 18px;
