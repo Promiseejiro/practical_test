@@ -63,7 +63,9 @@ const Homepage = () => {
         </div>
       </div>
       <div className="body">
-        <h2>All movies</h2>
+      <div className="body_header">
+        <h2 >All movies</h2>
+        </div>
         {movies && <Cards movies={movies} />}
       </div>
     </div>
