@@ -8,7 +8,7 @@ const fetch_movies = async (req, res) => {
       Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
     },
   };
-  fetch(`${base_uri}/movie/popular?language=en-US&page=1`, options)
+  fetch(`${base_uri}/movie/popular?language=en-US&page=7`, options)
     .then((response) => response.json())
     .then((response) => {
       res.status(200).json(response);
