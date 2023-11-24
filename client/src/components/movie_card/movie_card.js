@@ -5,7 +5,7 @@ import { MdFavorite } from "react-icons/md";
 
 import "./movie_card.css";
 const base_uri = "http://localhost:8080";
-const Card = ({ movie }) => {
+const Card = ({ movie,addToFavourite }) => {
   const [clicked, setClicked] = useState(false);
   const [genreName, setgenreName] = useState([]);
 
@@ -35,8 +35,9 @@ const Card = ({ movie }) => {
       });
   };
 
-  const clickedHandler = () => {
+  const clickedHandler = (movieId) => {
     setClicked(!clicked);
+    addToFavourite(movieId)
   };
 
   useEffect(() => {
@@ -51,7 +52,9 @@ const Card = ({ movie }) => {
         style={{
           color: `${clicked ? "red" : ""}`,
         }}
-        onClick={clickedHandler}
+        onClick={()=>{
+          clickedHandler(movie.id)
+        }}
       >
         <MdFavorite />
       </button>
