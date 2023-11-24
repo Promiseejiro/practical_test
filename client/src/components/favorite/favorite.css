@@ -14,11 +14,6 @@
   height: 2rem;
   background-color: transparent;
   border-radius: 50%;
-  
-}
-
-.favorite_container button:hover {
-  color: var(--main-color);
 }
 
 .favorite_nav {
@@ -31,18 +26,38 @@
   font-weight: 500;
 }
 
-.favorite_list_container{
+.favorite_list_container {
   background-color: var(--white-color);
-  min-width: 17rem;
+  min-width: 20rem;
   position: absolute;
-  top:2rem;
+  top: 2rem;
   right: 0;
   border-radius: 7px;
   z-index: 2;
 }
 
-.favorite_list_container h3{
+.favorite_list_container h3 {
   border-bottom: 2px solid var(--dark-color);
   color: var(--main-color);
-  padding:.5rem 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.cleared_alert {
+  background-color: var(--gray);
+  padding: 0.5rem;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  border-radius: 5px;
+  color: green;
+  text-align: center;
 }

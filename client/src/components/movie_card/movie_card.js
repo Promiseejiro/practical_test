@@ -6,8 +6,8 @@ import { MdFavorite } from "react-icons/md";
 import "./movie_card.css";
 const base_uri = "http://localhost:8080";
 const Card = ({ movie }) => {
+  const [clicked, setClicked] = useState(false);
   const [genreName, setgenreName] = useState([]);
-
 
   const sort_genre = (all_genre_ids, movie_genre_ids) => {
     all_genre_ids.filter((genre) => {
@@ -35,6 +35,10 @@ const Card = ({ movie }) => {
       });
   };
 
+  const clickedHandler = () => {
+    setClicked(!clicked);
+  };
+
   useEffect(() => {
     get_genre();
   }, []);
@@ -43,9 +47,11 @@ const Card = ({ movie }) => {
     <div className="card">
       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
       <button
-
         className="favorite"
-        
+        style={{
+          color: `${clicked ? "red" : ""}`,
+        }}
+        onClick={clickedHandler}
       >
         <MdFavorite />
       </button>

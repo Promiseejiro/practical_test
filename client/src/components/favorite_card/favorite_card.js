@@ -13,7 +13,7 @@ const Favorite_card=()=>{
               label={"Remove"}
               icon={null}
               type={"gray"}
-              size={"small"}
+              size={"vsmall"}
             />
   </div>
     </li>
