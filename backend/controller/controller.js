@@ -1,6 +1,12 @@
 import base_uri from "../util/base_url.js";
 
+const headers={
+      accept: "application/json",
+      Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
+    }
+    
 const fetch_movies = async (req, res) => {
+  const category = req.query.category;
   const options = {
     method: "GET",
     headers: {
@@ -8,7 +14,27 @@ const fetch_movies = async (req, res) => {
       Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
     },
   };
-  fetch(`${base_uri}/movie/popular?language=en-US&page=7`, options)
+  fetch(`${base_uri}/movie/${category}?language=en-US&page=1`, options)
+    .then((response) => response.json())
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(400).json({ message: "An error occured" });
+    });
+};
+
+const searchMovie = async (req, res) => {
+  const queryString = req.query.movie
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
+    },
+  };
+  
+  fetch(`${base_uri}/search/movie?query=${queryString}&include_adult=false&language=en-US&page=1`, options)
     .then((response) => response.json())
     .then((response) => {
       res.status(200).json(response);
@@ -21,7 +47,7 @@ const fetch_movies = async (req, res) => {
 const getGenre = (req, res) => {
   const options = {
     method: "GET",
-    headers: {
+        headers: {
       accept: "application/json",
       Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
     },
@@ -36,4 +62,4 @@ const getGenre = (req, res) => {
     });
 };
 
-export { fetch_movies, getGenre };
+export { fetch_movies, getGenre,searchMovie };

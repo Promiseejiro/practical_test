@@ -5,6 +5,10 @@ import "./modal.css";
 const Modal = ({ clearHandler, closeHandler }) => {
   return (
     <div className="modal_container">
+
+    
+
+
       <div>
         <button className="modal-icon" onClick={closeHandler}>
           <LiaTimesSolid />
@@ -23,5 +27,6 @@ const Modal = ({ clearHandler, closeHandler }) => {
     </div>
   );
 };
+
 
 export default Modal;

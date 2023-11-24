@@ -6,10 +6,10 @@ import { IoIosArrowDown } from "react-icons/io";
 import "./select.css";
 
 const Select = ({ optionHandler }) => {
-  const dropDownOptions = ["All", "Popular", "Regular"];
+  const dropDownOptions = ["Popular", "Rated", "Now playing","Upcoming"];
 
   const [showDropdown, setShowDropDown] = useState(false);
-  const [option, setOption] = useState("All");
+  const [option, setOption] = useState("Popular");
 
   const handleDropDown = () => {
     setShowDropDown(!showDropdown);

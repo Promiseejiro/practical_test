@@ -6,6 +6,7 @@ import Favorite_cards from "../favorite_card/favorite_cards.js";
 import "./favorite.css";
 import Modal from "../modal/modal.js";
 const Favourite = () => {
+  const [favoriteMovies,setFavouriteMovie]=useState([]);
   const [showFavContainer, setShowFavContainer] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -22,6 +23,11 @@ const Favourite = () => {
     //logic to clear loca storage
     closeHandler();
   };
+  
+  useEffect(()=>{
+    const localFavMovies=JSON.parse(localStorage.getItem("favoriteMovie"));
+    setFavouriteMovie(localFavMovies);
+  },[])
 
   return (
     <div className="favorite_container">
@@ -31,7 +37,7 @@ const Favourite = () => {
       {showFavContainer && (
         <div className="favorite_list_container">
           <h3>Favorite</h3>
-          <Favorite_cards />
+          <Favorite_cards fav={favoriteMovies} />
           <div className="btn_container">
             <Button
               label={"Clear favourite"}
