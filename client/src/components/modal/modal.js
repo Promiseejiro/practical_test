@@ -1,6 +1,8 @@
 const Modal =()=>{
   return (
-    <div className="modal_container"></div>
+    <div className="modal_container">
+    
+    </div>
     )
 }
 
