@@ -17,19 +17,6 @@
   height: auto;
 }
 
-.favorite {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--gray-color);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: none;
-}
 
 /* .favorite:hover{
   color:var(--main-color);
@@ -61,6 +48,12 @@
 
 .gold {
   color: gold;
+}
+
+a{
+  color: var(--main-color);
+  font-size: 14px;
+  font-weight: 450;
 }
 
 .no_movie {

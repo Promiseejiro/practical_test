@@ -42,22 +42,22 @@ const searchMovie = async (req, res) => {
     });
 };
 
-const getGenre = (req, res) => {
-  const options = {
-    method: "GET",
+const getSingleMovie=(req,res)=>{
+  const movieId =  req.params.movieId
+  console.log(req.params)
+const options = {
+  method: 'GET',
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${process.env["ACCESS_TOKEN"]}`,
     },
-  };
-  fetch(`${base_uri}/genre/movie/list?language=en`, options)
-    .then((response) => response.json())
-    .then((response) => {
-      res.status(200).json(response.genres);
-    })
-    .catch((err) => {
-      res.status(400).json({ message: "An error occured" });
-    });
-};
+}
+fetch(`${base_uri}/movie/${movieId}?language=en-US`, options)
+  .then(res => res.json())
+  .then(data => {
+    res.status(200).json(data)
+  })
+  .catch(err => console.error('error:' + err));
+}
 
-export { fetch_movies, getGenre, searchMovie };
+export { fetch_movies, getGenre, searchMovie,getSingleMovie };

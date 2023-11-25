@@ -49,6 +49,28 @@
   padding: 1rem 0;
 }
 
+.control_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5rem;
+  margin-top:4rem;
+}
+
+.control_container button {
+  font-weight: 450;
+  background-color:var(--gray);
+  color:var(--main-color);
+  border: none;
+  font-size: 20px;
+  width:2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .body_header {
   display: flex;
   align-items: center;
@@ -68,11 +90,6 @@
   margin-top: 14rem;
 }
 
-footer {
-  color: var(--white-color);
-  padding: 1rem;
-  text-align: center;
-}
 
 @media (min-width: 700px) {
   .current_hero_movie_details {

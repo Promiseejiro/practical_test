@@ -9,22 +9,20 @@ Fetch movies from [The movie database ](https://developer.themoviedb.org/referen
 
 Add,Remove and clear Favourite list 
 
-## Available Scripts
+## Clone repository
 
-Enter main directory
+`git clone https://github.com/Promiseejiro/practical_test/`
 
-### `cd practical_test`
+In the project directory, you can run:
 
-Client 
+### Client 
 
-### `cd client`
-### `npm start`
+`cd client`
+`npm start`
 
-backend 
-backend 
-
-### `cd backend`
-### `npm run dev`
+### Backend 
+`cd backend`
+`npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

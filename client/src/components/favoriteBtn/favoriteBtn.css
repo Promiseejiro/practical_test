@@ -1,0 +1,13 @@
+.favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-color);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+}
