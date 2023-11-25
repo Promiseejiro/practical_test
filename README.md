@@ -9,11 +9,11 @@ Fetch movies from [The movie database ](https://developer.themoviedb.org/referen
 
 Add,Remove and clear Favourite list 
 
-## Available Scripts
+## Clone repository
 
-### Enter main directory
+`git clone https://github.com/Promiseejiro/practical_test/`
 
-`cd practical_test`
+In the project directory, you can run:
 
 ### Client 
 
