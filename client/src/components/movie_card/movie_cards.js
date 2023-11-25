@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+
 import "./movie_card.css";
 
 import Card from "./movie_card";
 
 const Cards = ({ movies }) => {
+  
   const [favouriteMovie, setfavouriteMovie] = useState([]);
 
   const addToFavourite = (movieId) => {
+    
     movies.map((newMovie) => {
       if (newMovie.id === movieId) {
         const newfavMovies = [...favouriteMovie, newMovie];

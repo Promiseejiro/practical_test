@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../../components/button/button";
 import Logo from "../../components/logo/logo";
+import Footer from "../../components/footer/footer";
 import Favourite from "../../components/favorite/favorite";
 import Search from "../../components/search/search";
 import Select from "../../components/select/select";
 import { MdSlowMotionVideo } from "react-icons/md";
+import { IoIosArrowBack,IoIosArrowForward } from "react-icons/io"
 // import {base_uri} from "../../../utils/utils";
 import "./homepage.css";
 import Cards from "../../components/movie_card/movie_cards";
@@ -16,6 +18,8 @@ const Homepage = () => {
   const [search, setSearch] = useState("");
   const [screenPos, setScreenPos] = useState(0);
   const [page, setPage] = useState(1);
+  const [currentMovie,setCurrentMovie]=useState(0);
+
 
   document.addEventListener("scroll", () => {
     const element = document.querySelector(".hero_container");
@@ -41,7 +45,6 @@ const Homepage = () => {
       fetch(`${base_uri}/search?movie=${search}`)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data.results);
           setMovies(data.results);
         })
         .catch((error) => {
@@ -49,6 +52,29 @@ const Homepage = () => {
         });
     }
   };
+  
+  const nextHandler=()=>{
+        if(currentMovie < movies.length-1){
+      setCurrentMovie(currentMovie +1)
+    }else{
+      setCurrentMovie(0)
+    }
+  }
+  
+  const prevHandler=()=>{
+    if(currentMovie < 1){
+      setCurrentMovie(currentMovie-1)
+    } else {
+      
+  }}
+  
+  setInterval(()=>{
+    if(currentMovie < movies.length-1){
+      setCurrentMovie(currentMovie +1)
+    }else{
+      setCurrentMovie(0)
+    }
+  },5000);
 
   const optionHandler = (option) => {
     setSearch("");
@@ -99,9 +125,9 @@ const Homepage = () => {
       {!search && (
         <div
           className="hero_container"
-          style={{
-            backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FZ4X2C66Fjv05H626i9w--ZQCAZ6F4p4gw&usqp=CAU)`,
-          }}
+        /*  style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movies[1].poster_path})`,
+          }}*/
         >
           <div className="overlay">
             <div className="current_hero_movie_details">
@@ -116,6 +142,11 @@ const Homepage = () => {
                 type={"primary"}
                 size={"medium"}
               />
+            </div>
+            
+            <div className="control_container">
+           <button onClick={prevHandler}><IoIosArrowBack/></button> 
+           <button onClick={nextHandler}><IoIosArrowForward/></button> 
             </div>
           </div>
         </div>
@@ -136,7 +167,7 @@ const Homepage = () => {
           clickHandler={nextPage}
         />
       </div>
-      <footer>Created with ❤ by Promise</footer>
+<Footer/>
     </div>
   );
 };
