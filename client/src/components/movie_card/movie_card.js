@@ -7,7 +7,21 @@ import {Link} from "react-router-dom"
 
 import "./movie_card.css";
 const base_uri = "http://localhost:8080";
+
 const Card = ({ movie, addToFavourite }) => {
+
+  const [clicked, setClicked] = useState(false);
+  const [genre, setgenre] = useState([]);
+
+  const clickedHandler = (movieId) => {
+    setClicked(!clicked);
+    addToFavourite(movieId);
+  };
+
+  useEffect(() => {
+    //   console.log(getGenre());
+    getGenre();
+  }, []);
 
   return (
     <div className="card">
@@ -25,6 +39,7 @@ const Card = ({ movie, addToFavourite }) => {
         </span>
       </div>
       <h4>{movie.title}</h4>
+
       
       <Link to={`/movie/${movie.id}`}>View</Link>
     </div>
