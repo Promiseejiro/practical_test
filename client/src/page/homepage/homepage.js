@@ -10,6 +10,7 @@ import "./homepage.css";
 import Cards from "../../components/movie_card/movie_cards";
 
 const base_uri = "http://localhost:8080";
+
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState("popular");
@@ -31,7 +32,7 @@ const Homepage = () => {
       fetch(`${base_uri}/fetch?category=${category}&&page=${page}`)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data.results);
+          // console.log(data);
           setMovies(data.results);
         })
         .catch((error) => {
@@ -41,7 +42,6 @@ const Homepage = () => {
       fetch(`${base_uri}/search?movie=${search}`)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data.results);
           setMovies(data.results);
         })
         .catch((error) => {
