@@ -1,23 +1,35 @@
 import Button from "../button/button";
-import "./favorite_card.css"
+import { IoStar } from "react-icons/io5";
+import "./favorite_card.css";
 
-const Favorite_card=()=>{
+const Favorite_card = ({ movie, removeMovie }) => {
+  const findMovie = (id) => {
+    console.log(id);
+    removeMovie(id);
+  };
+
   return (
     <li className="list_item">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FZ4X2C66Fjv05H626i9w--ZQCAZ6F4p4gw&usqp=CAU"/>
-  <div>
-  <div><h5>Movie name</h5>
-  <span className="fav_rating">Rating</span>
-  </div>
-       <Button
-              label={"Remove"}
-              icon={null}
-              type={"gray"}
-              size={"vsmall"}
-            />
-  </div>
+      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+      <div>
+        <div>
+          <h5>{movie.original_title}</h5>
+          <span className="fav_rating count">
+            {movie.vote_average} <IoStar className="gold" />
+          </span>
+        </div>
+        <Button
+          label={"Remove"}
+          icon={null}
+          type={"gray"}
+          size={"vsmall"}
+          clickHandler={() => {
+            findMovie(movie.id);
+          }}
+        />
+      </div>
     </li>
-    )
-}
+  );
+};
 
-export default Favorite_card
+export default Favorite_card;

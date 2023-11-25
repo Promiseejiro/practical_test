@@ -1,5 +1,9 @@
 import express from "express";
-import { fetch_movies, getGenre,searchMovie } from "../controller/controller.js";
+import {
+  fetch_movies,
+  getGenre,
+  searchMovie,
+} from "../controller/controller.js";
 
 const router = express.Router();
 

@@ -63,6 +63,11 @@
   color: gold;
 }
 
+.no_movie {
+  text-align: center;
+  padding: 1rem;
+}
+
 @media (min-width: 600px) {
   .card_container {
     grid-template-columns: 1fr 1fr 1fr;

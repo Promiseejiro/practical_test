@@ -2,6 +2,8 @@ ul {
   text-decoration: none;
   list-style: none;
   padding: 1rem;
+  max-height: 20rem;
+  overflow-y: scroll;
 }
 
 .list_item {
@@ -35,4 +37,7 @@ ul {
   font-size: 12px;
   font-weight: 500;
   color: var(--main-color);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
