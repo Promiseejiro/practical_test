@@ -1,14 +1,13 @@
-.haeder_container{
-  position:fixed;
-  top:0;
-  left:0;
+.haeder_container {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index:2;
+  z-index: 2;
   padding: 1rem;
 }
 
 .header {
-  
   background-color: transparent;
   display: flex;
   justify-content: space-between;
@@ -32,14 +31,16 @@
 
 .filter_component {
   display: block;
+  margin-top: 4rem;
 }
 
 .current_hero_movie_details {
-  margin-top: 14rem;
+  margin-top: 17rem;
 }
 
 .hero_movie_title {
   color: var(--white-color);
+  font-weight: 450;
 }
 
 .hero_movie_test {
@@ -48,29 +49,34 @@
   padding: 1rem 0;
 }
 
-.body_header{
+.body_header {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
 }
 
-.body  h2 {
+.body h2 {
   font-size: 30px;
   font-weight: 450;
   text-align: center;
   color: var(--white-color);
-border-bottom: 2px solid var(--main-color);
-
+  border-bottom: 2px solid var(--main-color);
 }
 
-.discover_header{
-  margin-top:14rem;
+.discover_header {
+  margin-top: 14rem;
+}
+
+footer {
+  color: var(--white-color);
+  padding: 1rem;
+  text-align: center;
 }
 
 @media (min-width: 700px) {
   .current_hero_movie_details {
-    margin-top: 8rem;
+    margin-top: 17rem;
     display: flex;
     align-items: center;
     flex-direction: column;
