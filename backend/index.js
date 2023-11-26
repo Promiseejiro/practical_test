@@ -14,5 +14,5 @@ app.use(cors());
 app.use("/", router);
 
 app.listen(PORT, () => {
-  console.log(`app is listenig on port ${PORT}`);
+  console.log(`app is listenig on http://localhost:8080`);
 });
