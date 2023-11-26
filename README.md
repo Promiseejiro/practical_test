@@ -1,6 +1,6 @@
 # Internship Assessment
 
-This project is an assessment test assign to me for an internship role.
+This project is an assessment  assign to me for an internship role.
 
 
 # Features
