@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../../components/button/button";
+import Loader from "../../components/loader/loader";
 import Footer from "../../components/footer/footer";
 import Search from "../../components/search/search";
 import Select from "../../components/select/select";
@@ -10,14 +11,8 @@ import "./homepage.css";
 import Cards from "../../components/movie_card/movie_cards";
 
 const Homepage = () => {
-  const [movies, setMovies] = useState([
-    {
-      original_title: "Trolls Band Together",
-      poster_path: "/bkpPTZUdq31UGDovmszsg2CchiI.jpg",
-      overview:
-        "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite",
-    },
-  ]);
+  const [movies, setMovies] = useState([]);
+  const [loading,setLoading]=useState(true);
   const [category, setCategory] = useState("popular");
   const [search, setSearch] = useState("");
   const [screenPos, setScreenPos] = useState(0);
@@ -36,6 +31,7 @@ const Homepage = () => {
         .then((data) => {
           if (data.results) {
             setMovies(data.results);
+            setLoading(false)
           }
         })
         .catch((error) => {
@@ -47,6 +43,7 @@ const Homepage = () => {
         .then((data) => {
           if (data.results) {
             setMovies(data.results);
+           setLoading(false)
           }
         })
         .catch((error) => {
@@ -100,6 +97,8 @@ const Homepage = () => {
   }, [search, category, page]);
   return (
     <div className="homepage">
+    {!loading ? (
+    <div>
       <div
         className="haeder_container"
         style={{
@@ -114,8 +113,7 @@ const Homepage = () => {
           </div>
         )}
       </div>
-      <div></div>
-      {!search && (
+    {!search && (
         <div
           className="hero_container"
           style={{
@@ -135,7 +133,11 @@ const Homepage = () => {
           </div>
         </div>
       )}
-      <div className="body">
+      </div>
+      
+    ):(<Loader/>)}
+    {!loading &&(
+      <div className="body" id="movies">
         <div className="body_header">
           {search ? (
             <h2 className="discover_header">Discover</h2>
@@ -144,13 +146,16 @@ const Homepage = () => {
           )}
         </div>
         {movies && <Cards movies={movies} />}
+        <Link href="#movies">
         <Button
           label={"See More"}
           type="outline"
           size={"medium"}
           clickHandler={nextPage}
         />
+        </Link>
       </div>
+      )}
       <Footer />
     </div>
   );

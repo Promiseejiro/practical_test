@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FavoriteBtn from "../../components/favoriteBtn/favoriteBtn";
+import Loader from "../../components/loader/loader";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import { FaArrowLeft } from "react-icons/fa";
@@ -43,13 +44,15 @@ const MoviePage = () => {
 
   return (
     <div className="movie_page">
-      <Header />
+    {
+      movie.original_title ? (<div>
+            <Header />
       <div className="btn_container">
         <Link to="../">
           <FaArrowLeft className="back_btn" />
         </Link>
       </div>
-      {movie.genres && (
+
         <div>
           <div className="movie_container">
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
@@ -73,8 +76,10 @@ const MoviePage = () => {
             </div>
           </div>
         </div>
-      )}
       <Footer />
+      </div>) : (<Loader/>)
+    }
+
     </div>
   );
 };

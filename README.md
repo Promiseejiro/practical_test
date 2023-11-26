@@ -18,10 +18,12 @@ In the project directory, you can run:
 ### Client 
 
 `cd client`
+
 `npm start`
 
 ### Backend 
 `cd backend`
+
 `npm run dev`
 
 Runs the app in the development mode.\
