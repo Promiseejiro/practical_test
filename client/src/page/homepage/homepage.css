@@ -7,13 +7,6 @@
   padding: 1rem;
 }
 
-.header {
-  background-color: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .hero_container {
   height: 100vh;
   background-position: center;
@@ -49,28 +42,6 @@
   padding: 1rem 0;
 }
 
-.control_container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:5rem;
-  margin-top:4rem;
-}
-
-.control_container button {
-  font-weight: 450;
-  background-color:var(--gray);
-  color:var(--main-color);
-  border: none;
-  font-size: 20px;
-  width:2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .body_header {
   display: flex;
   align-items: center;
@@ -90,8 +61,11 @@
   margin-top: 14rem;
 }
 
-
 @media (min-width: 700px) {
+  .haeder_container {
+    padding: 1rem 4rem;
+  }
+
   .current_hero_movie_details {
     margin-top: 17rem;
     display: flex;

@@ -1,31 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../../components/button/button";
-import Logo from "../../components/logo/logo";
 import Footer from "../../components/footer/footer";
-import Favourite from "../../components/favorite/favorite";
 import Search from "../../components/search/search";
 import Select from "../../components/select/select";
-import { MdSlowMotionVideo } from "react-icons/md";
-import { IoIosArrowBack,IoIosArrowForward } from "react-icons/io"
-// import {base_uri} from "../../../utils/utils";
+import Header from "../../components/header/header";
+import { Link } from "react-router-dom";
+import base_url from "../../utils/utils";
 import "./homepage.css";
 import Cards from "../../components/movie_card/movie_cards";
 
-const base_uri = "http://localhost:8080";
-
 const Homepage = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([
+    {
+      original_title: "Trolls Band Together",
+      poster_path: "/bkpPTZUdq31UGDovmszsg2CchiI.jpg",
+      overview:
+        "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite",
+    },
+  ]);
   const [category, setCategory] = useState("popular");
   const [search, setSearch] = useState("");
   const [screenPos, setScreenPos] = useState(0);
   const [page, setPage] = useState(1);
-  const [currentMovie,setCurrentMovie]=useState(0);
-
-
-  document.addEventListener("scroll", () => {
-    const element = document.querySelector(".hero_container");
-    setScreenPos(element.getBoundingClientRect().top);
-  });
+  const [currentMovie, setCurrentMovie] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   const nextPage = () => {
     setPage(page + 1);
@@ -33,49 +31,33 @@ const Homepage = () => {
 
   const fetchData = () => {
     if (!search) {
-      fetch(`${base_uri}/fetch?category=${category}&&page=${page}`)
+      fetch(`${base_url}/fetch?category=${category}&&page=${page}`)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data);
-          setMovies(data.results);
+          if (data.results) {
+            setMovies(data.results);
+          }
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      fetch(`${base_uri}/search?movie=${search}`)
+      fetch(`${base_url}/search?movie=${search}`)
         .then((response) => response.json())
         .then((data) => {
-          setMovies(data.results);
+          if (data.results) {
+            setMovies(data.results);
+          }
         })
         .catch((error) => {
           console.log(error);
         });
     }
   };
-  
-  const nextHandler=()=>{
-        if(currentMovie < movies.length-1){
-      setCurrentMovie(currentMovie +1)
-    }else{
-      setCurrentMovie(0)
-    }
-  }
-  
-  const prevHandler=()=>{
-    if(currentMovie < 1){
-      setCurrentMovie(currentMovie-1)
-    } else {
-      
-  }}
-  
-  setInterval(()=>{
-    if(currentMovie < movies.length-1){
-      setCurrentMovie(currentMovie +1)
-    }else{
-      setCurrentMovie(0)
-    }
-  },5000);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
 
   const optionHandler = (option) => {
     setSearch("");
@@ -98,56 +80,57 @@ const Homepage = () => {
   };
 
   useEffect(() => {
+    if (movies.length > 1) {
+      const intervalId = setInterval(() => {
+        setCurrentMovie(currentMovie + 1);
+      }, 5000);
+      return () => clearInterval(intervalId);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     fetchData();
   }, [search, category, page]);
   return (
-    <div>
-      {/*  <Button label={"movie"} icon={<RiMovieLine />} type={"primary"} size={"large"}/>
-       */}
+    <div className="homepage">
       <div
         className="haeder_container"
         style={{
-          backgroundColor: `${
-            screenPos < -50 ? "rgba(0,0,0,.5)" : "transparent"
-          }`,
+          backgroundColor: `${scrollY > 50 ? "rgba(0,0,0,.5)" : "transparent"}`,
         }}
       >
-        <header className="header">
-          <Logo />
-          <Favourite />
-        </header>
-        {screenPos > -50 && (
+        <Header />
+        {scrollY < 50 && (
           <div className="filter_component">
             <Search onChangeHandler={onChangeHandler} />
             <Select optionHandler={optionHandler} />
           </div>
         )}
       </div>
+      <div></div>
       {!search && (
         <div
           className="hero_container"
-        /*  style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movies[1].poster_path})`,
-          }}*/
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movies[currentMovie].poster_path})`,
+          }}
         >
           <div className="overlay">
             <div className="current_hero_movie_details">
-              <h1 className="hero_movie_title">The creator</h1>
-              <p className="hero_movie_test">
-                A student and her photographer boyfriend visit an island off of
-                Massachusetts to research a hotel supposedly haunted by a witch.
-              </p>
-              <Button
-                label={"View"}
-                icon={<MdSlowMotionVideo />}
-                type={"primary"}
-                size={"medium"}
-              />
-            </div>
-            
-            <div className="control_container">
-           <button onClick={prevHandler}><IoIosArrowBack/></button> 
-           <button onClick={nextHandler}><IoIosArrowForward/></button> 
+              <h1 className="hero_movie_title">
+                {movies[currentMovie].original_title}
+              </h1>
+              <p className="hero_movie_test">{movies[currentMovie].overview}</p>
+              <Link to={`movie/${movies[currentMovie].id}`}>
+                <Button label={"View"} type={"primary"} size={"medium"} />
+              </Link>
             </div>
           </div>
         </div>
@@ -168,7 +151,7 @@ const Homepage = () => {
           clickHandler={nextPage}
         />
       </div>
-<Footer/>
+      <Footer />
     </div>
   );
 };

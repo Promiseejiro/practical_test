@@ -48,7 +48,7 @@ const Favorite_cards = ({ hideFavoriteHandler }) => {
         ))}
       </ul>
 
-      <div className="btn_container">
+      <div className="fav_btn_container">
         {favoriteMovies.length > 0 ? (
           <Button
             label={"Clear favourite"}
