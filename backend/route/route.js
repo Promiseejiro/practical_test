@@ -1,9 +1,8 @@
 import express from "express";
 import {
   fetch_movies,
-  getGenre,
   searchMovie,
-  getSingleMovie
+  getSingleMovie,
 } from "../controller/controller.js";
 
 const router = express.Router();
